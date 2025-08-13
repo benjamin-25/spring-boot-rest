@@ -6,4 +6,17 @@ window.addEventListener('DOMContentLoaded', event => {
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
+    const user = async() => {
+        const response = await fetch("https://randomuser.me/api/", {
+            method: "GET",
+            headers:{
+                "content-type": "application/json",
+            }
+        });
+
+        const data = await response?.json();
+        console.log(data?.results);
+    };
+
+    user();
 });
